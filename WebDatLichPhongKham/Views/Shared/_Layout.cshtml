@@ -1,0 +1,407 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebDatLichPhongKham</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebDatLichPhongKham.styles.css" asp-append-version="true" />
+    @* Import Icon *@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<style>
+    .offcanvas-body .header__input--search .btn {
+        padding: 0px;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        margin-left: 7px;
+    }
+
+    .navbar-toggler {
+        border: none;
+        font-size: 1.25rem;
+        transition: 0.3s;
+    }
+
+    .navbar-toggler:hover {
+        opacity: 0.7;
+    }
+    .navbar-toggler:focus, .btn-close:focus {
+        box-shadow: none;
+        outline: none;
+    }
+
+    .navbar .container-fluid {
+        padding-left: 55px;
+    }
+
+    .dangkyvadangnhap {
+        margin-top: 5px !important;
+    }
+
+    #gachxuong {
+        font-size: 23px;
+        color: #cac3c3;
+        font-weight: 100;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: -1px;
+    }
+    /* === Category === */
+    .list__category {
+        display: flex;
+        margin: auto;
+        width: 1400px;
+    }
+
+    .list__category li {
+        list-style-type: none;
+        padding: 15px 10px;
+    }
+
+    .list__category li a:hover {
+        color: #1d93e3;
+    }
+
+    .list__category li a {
+        text-decoration: none;
+        font-weight: 600;
+        color: #534E56;
+        font-size: 17px;
+        transition: 0.2s ease;
+    }
+    /* CSS cho li trang chủ */
+    .maucodinh {
+        color: #1d93e3 !important;
+        transition: 0.4s ease;
+    }
+
+    .maucodinh:hover {
+        opacity: 0.6;
+    }
+    /* Menu cấp 2 */
+    .menucap2 {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .menucap2 .menucap2__info, .menucap2__yte, .menucap2__hdkh, .menucap2__nckh, .menucap2__news, .menucap2__hethong, .menucap2 .menucap2__info {
+        position: absolute;
+        top: 50px;
+        left: 10px;
+        width: 255px;
+        display: none;
+        transition: 0.2s ease;
+        border-top: 2px solid #1d93e3;
+        padding-left: 0px;
+    }
+
+    .menucap2 .menucap2__info {
+        height: 280px;
+    }
+
+    .menucap2:hover ul {
+        display: block;
+        background: white;
+    }
+
+    .menucap2 li {
+        padding-left: 10px;
+        border-top: 1px solid #cccccc5e;
+    }
+</style>
+<body>
+   
+    @* Header *@
+    <nav class="navbar  navbar-expand-lg header">
+        <div class="container-fluid">
+
+            @* Thương hiệu gồm logo và tên brand *@
+            <div class="header__logo--MEDLATIC">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="images/Logo.png" class="logo--desktop" alt="Logo bệnh viện đa khoa MEDLATIC" title="Bệnh viện đa khoa MEDLATIC">
+                    <img src="images/Logo không có chữ.png" class="logo--mobile" alt="Logo bệnh viện đa khoa MEDLATIC" title="Bệnh viện đa khoa MEDLATIC">
+                </a>
+            </div>
+            
+            @* Nút bar *@
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
+                @* Tên bệnh viện *@
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Bệnh viện đa khoa MEDLATEC</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-evenly flex-grow-1 pe-3">
+
+                        @* Thanh tìm kiếm và nút search *@
+                        <li class="nav-item">
+                            <div class="input-group mb-3 header__input--search">
+                                <input type="text" placeholder="Tìm kiếm" class="chinhchutimkiem">
+                                <button class="btn" type="button" id="button-addon2">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                        </li>
+
+                        @* Đường dây nóng *@
+                        <li class="nav-item mx-5">
+                            <div class="header__hotlineandmessage header__duongdaynong--moveleft">
+                                <a href="#">
+                                    <div href="" class="logo--hotlineandmessage">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <p class="duongdaynong">Đường dây nóng</p>
+                                    <p class="sdt">1900565656</p>
+                                </a>
+                            </div>
+                        </li>
+
+                        @* Liên hệ *@
+                        <li class="nav-item duonggachtren">
+                            <div class="header__hotlineandmessage header__hotlineandmessage--moveleft ">
+                                <a href="https://www.facebook.com/BenhVienDaKhoaMedlatec/" target="_blank">
+                                    <div class="logo--hotlineandmessage">
+                                        <i class="fa-solid fa-comment-dots"></i>
+                                    </div>
+                                    <p class="duongdaynong">Liên hệ</p>
+                                    <p class="sdt">Hỗ trợ khách hàng</p>
+                                </a>
+                            </div>
+                        </li>
+
+                        @* Home *@
+                        <li class="nav-item mt-4">
+                            <a class="trangchu" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                        </li>
+
+                        @* Đăng ký và đăng nhập *@
+                        <li class="nav-item dangkyvadangnhap">
+                            <partial name="_LoginPartial" style="margin-top: 5px;"/>
+                        </li>
+                        
+                    </ul> 
+                </div>
+            </div>
+        </div>
+    </nav> @* End Navbar *@
+
+    <div class="container">
+        <!-- Category -->
+        <div class="category">
+            
+            <ul class="list__category ps-0">
+                <li>
+                    <a href="" class="active maucodinh">Trang chủ</a>
+                </li>
+                <li class="menucap2">
+                    <a href="">Giới thiệu</a>
+                    <ul class="menucap2__info">
+                        <li><a href="">Lịch sử hình thành phát triển</a></li>
+                        <li><a href="">Cơ sở vật chất & trang thiết bị</a></li>
+                        <li><a href="">Chứng chỉ chứng nhận</a></li>
+                        <li><a href="">Báo chí nói về chúng tôi</a></li>
+                        <li><a href="">Video</a></li>
+                    </ul>
+                </li>
+                <li class="menucap2">
+                    <a href="">Dịch vụ y tế</a>
+                    <ul class="menucap2__yte">
+                        <li><a href="">Lấy mẫu xét nghiệm tận nơi</a></li>
+                        <li><a href="">Chuyên khoa y tế</a></li>
+                        <li><a href="">Khám sức khoẻ doanh nghiệp</a></li>
+                        <li><a href="">Dịch vụ bảo hiểm</a></li>
+                        <li><a href="">Gói khám sức khoẻ</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">Đội ngũ chuyên gia</a>
+                </li>
+                <li class="menucap2">
+                    <a href="">Hướng dẫn khách hàng</a>
+                    <ul class="menucap2__hdkh">
+                        <li><a href="">Đặt lịch lấy mẫu tận nơi</a></li>
+                        <li><a href="">Đặt lịch khám bệnh tại cơ sở</a></li>
+                        <li><a href="">Tra cứu kết quả</a></li>
+                        <li><a href="">Bảng giá dịch vụ chung</a></li>
+                        <li><a href="">Tư vấn online</a></li>
+                        <li><a href="">Giờ làm việc</a></li>
+                        <li><a href="">Quy trình khám chữa bệnh</a></li>
+                    </ul>
+                </li>
+                <li class="menucap2">
+                    <a href="">Nghiên cứu khoa học</a>
+                    <ul class="menucap2__nckh">
+                        <li><a href="">Từ điển bệnh lý</a></li>
+                    </ul>
+                </li>
+                <li class="menucap2">
+                    <a href="">Tin tức</a>
+                    <ul class="menucap2__news">
+                        <li><a href="">Tin tức tổng hợp</a></li>
+                        <li><a href="">Tin tức y khoa</a></li>
+                        <li><a href="">Hoạt động nội bộ</a></li>
+                        <li><a href="">Chẩn đoán hình ảnh</a></li>
+                        <li><a href="">Dinh dưỡng</a></li>
+                        <li><a href="">Thông báo dịch vụ</a></li>
+                        <li><a href="">Thông báo mời thầu</a></li>
+                    </ul>
+                </li>
+                <li class="menucap2">
+                    <a href="">Tuyển dụng</a>
+                </li>
+                <li class="menucap2">
+                    <a href="">Hệ thống MEDLATEC GROUP</a>
+                    <ul class="menucap2__hethong">
+                        <li><a href="">Hệ thống Bệnh viện và Phòng khám đa khoa</a></li>
+                        <li><a href="">Hệ thống chi nhánh các tỉnh</a></li>
+                        <li><a href="">Hệ thống văn phòng lấy mẫu</a></li>
+                        <li><a href="">Trung tâm Chẩn đoán hình ảnh</a></li>
+                        <li><a href="">MADLATEC Cambodia</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    @* Body *@
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid" style="background-color: #00508E;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="block__content d-flex">
+                    <div class="footer__logo">
+                        <img src="images/Logo không có chữ.png" alt="Bệnh viện đa khoa MEDLATEC"    >
+                    </div>
+                    <div class="footer__title ps-3 text-light">
+                        <h3>Bệnh viện đa khoa MEDLATEC</h3>
+                        <p>Trực thuộc Công ty TNHH Công nghệ và Xét nghiệm Y học</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Left comlumn -->
+                <div class="col-lg-4 text-light pt-5">
+                    <h4 class="fw-bold footer__border--contact">Liên hệ</h4>
+                    <br>
+                    <i class="bi bi-telephone"></i>
+                    <span>1900565656</span>
+                    <br>
+                    <i class="bi bi-geo-alt"></i>
+                    <span>Địa điểm của MEDLATEC</span>
+                    <ul>
+                        <li>Hệ thống bệnh viện và phòng khám</li>
+                        <li>Hệ thống chi nhánh các tỉnh</li>
+                        <li>Hệ thống văn phòng</li>
+                        <li>MEDLATEC Cambodia</li>
+                    </ul>
+                    <div class="img--ecommerce mb-3">
+                        <a href="http://online.gov.vn/Home/WebDetails/12632" target="_blank">
+                            <img src="images/Đã thông báo bộ công thương.png" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <p>Chịu trách nhiệm nội dung:</p>
+                    <p>GĐ.ThS.BS Hoàng Thị Năng</p>
+                </div>
+                <!-- Center comlumn -->
+                <div class="col-lg-4 text-light pt-5">
+                    <h4 class="fw-bold footer__border--operatingRegulations">Quy chế hoạt động</h4>
+                    <br>
+                    <ul>
+                        <li>Quy chế hoạt động</li>
+                        <li>Chính sách bảo mật & Điều khoản sử dụng</li>
+                        <li>Trách nhiệm và cam kết</li>
+                    </ul>
+                    <h4 class="fw-bold footer__border--contact">Dịch vụ</h4>
+                    <br>
+                    <ul>
+                        <li>Khám sức khỏe doanh nghiệp</li>
+                        <li>Lấy mẫu xét nghiệm tận nơi</li>
+                        <li>Bảo hiểm y tế</li>
+                    </ul>
+                </div>
+                <!-- Right comlumn -->
+                <div class="col-lg-4 text-light pt-5">
+                    <h4 class="fw-bold footer__border--followNews">Theo dõi tin tức và dịch vụ mới nhất của chúng tôi</h4>
+                    <br>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control py-3 ps-3 rounded-2" placeholder="Địa chỉ email" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-primary" type="button" id="button-addon2">ĐĂNG KÝ</button>
+                    </div>
+                    <br>
+                    <p style="font-size: small;">Bằng cách nhấn nút <strong>“Đăng ký</strong>”, tôi xác nhận đã đọc và đồng ý với các <a href="#" class="text-decoration-none text-light"><strong>Chính sách bảo mật & Điều khoản sử dụng</strong></a></p>
+                    <div class="block__child d-flex pt-3">
+                        <div class="col-lg-6">
+                            <h4 class="fw-bold footer__border--link d-block">Liên kết</h4>
+                            <div class="logo--facebook-youtube-zalo pt-4">
+                                <a href="https://www.facebook.com/BenhVienDaKhoaMedlatec/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="https://www.youtube.com/channel/UCOMskN2D_vfshrGgpL-o55Q" target="_blank"><i class="fa-brands fa-youtube mx-3"></i></a>
+                                <a href="https://zalo.me/2830811318419977487" target="_blank"><i class="fa-solid fa-z"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h4 class="fw-bold footer__border--downApp">Tải ứng dụng MEDLATEC</h4>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="maqr">
+                                        <img src="images/MaQR.jpg" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mt-4 p-1">
+                                    <a href="https://apps.apple.com/vn/app/my-medlatec/id1628288322" target="_blank"><img src="images/Dowload app store.png" alt="" class="img-fluid"></a>
+                                    <a href="https://play.google.com/store/apps/details?id=com.medon.mymedlatec&pli=1" target="_blank"><img src="images/Dowload chplay.png" alt="" class="img-fluid mt-2"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Horizontal Rule -->
+            <div class="row">
+                <div class="col-md-12">
+                    <hr style="color: white;">
+                </div>
+            </div>
+            <!-- Copyright and info -->
+            <div class="row text-light">
+                <div class="col-lg-4">
+                    <span>Copyright 2020 © Bệnh Viện Đa khoa MEDLATEC</span>
+                </div>
+                <div class="col-lg-8 ps-5">
+                    <span>Mã số thuế: 0101234974</span>
+                    <span class="px-2">•</span>
+                    <span>Ngày cấp: 22/04/2002</span>
+                    <span class="px-2">•</span>
+                    <span>Cơ quan cấp: Sở Kế hoạch và Đầu tư thành phố Hà Nội</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
