@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -54,7 +55,7 @@
     .list__category {
         display: flex;
         margin: auto;
-        width: 1400px;
+        width: 1384px;
     }
 
     .list__category li {
@@ -113,6 +114,25 @@
         padding-left: 10px;
         border-top: 1px solid #cccccc5e;
     }
+    .dangky .col-4 {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 30px;
+    }
+    .dangky p {
+        color: #757070;
+    }
+
+    .dangky input {
+        outline: none;
+        box-shadow: none !important;
+        background-color: #3333331a;
+        height: 40px !important;
+    }
+
+    .dangky .checkbox input {
+        width: 18px;
+        height: 18px !important;
+    }
 </style>
 <body>
    
@@ -123,8 +143,8 @@
             @* Thương hiệu gồm logo và tên brand *@
             <div class="header__logo--MEDLATIC">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="images/Logo.png" class="logo--desktop" alt="Logo bệnh viện đa khoa MEDLATIC" title="Bệnh viện đa khoa MEDLATIC">
-                    <img src="images/Logo không có chữ.png" class="logo--mobile" alt="Logo bệnh viện đa khoa MEDLATIC" title="Bệnh viện đa khoa MEDLATIC">
+                    <img src="/images/Logo.png" class="logo--desktop" alt="Logo bệnh viện đa khoa MEDLATIC" title="Bệnh viện đa khoa MEDLATIC">
+                    <img src="/images/Logo không có chữ.png" class="logo--mobile" alt="Logo bệnh viện đa khoa MEDLATIC" title="Bệnh viện đa khoa MEDLATIC">
                 </a>
             </div>
             
@@ -291,7 +311,7 @@
             <div class="row">
                 <div class="block__content d-flex">
                     <div class="footer__logo">
-                        <img src="images/Logo không có chữ.png" alt="Bệnh viện đa khoa MEDLATEC"    >
+                        <img src="/images/Logo không có chữ.png" alt="Bệnh viện đa khoa MEDLATEC"    >
                     </div>
                     <div class="footer__title ps-3 text-light">
                         <h3>Bệnh viện đa khoa MEDLATEC</h3>
@@ -344,10 +364,10 @@
                 <div class="col-lg-4 text-light pt-5">
                     <h4 class="fw-bold footer__border--followNews">Theo dõi tin tức và dịch vụ mới nhất của chúng tôi</h4>
                     <br>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control py-3 ps-3 rounded-2" placeholder="Địa chỉ email" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-primary" type="button" id="button-addon2">ĐĂNG KÝ</button>
-                    </div>
+                        <div class="input-group mb-3 footer__block--email">           
+                            <input type="email" class="form-control py-3 ps-3 rounded-2" placeholder="Địa chỉ email" aria-label="Recipient's username" aria-describedby="button-addon2" disabled>
+                            <button class="btn btn-primary" type="button" id="button-addon2" disabled>ĐĂNG KÝ</button>
+                        </div>
                     <br>
                     <p style="font-size: small;">Bằng cách nhấn nút <strong>“Đăng ký</strong>”, tôi xác nhận đã đọc và đồng ý với các <a href="#" class="text-decoration-none text-light"><strong>Chính sách bảo mật & Điều khoản sử dụng</strong></a></p>
                     <div class="block__child d-flex pt-3">
