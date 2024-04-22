@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebDatLichPhongKham.Models;
 
@@ -12,7 +12,12 @@ namespace WebDatLichPhongKham.Controllers
         {
             _logger = logger;
         }
-
+        
+        /* Lịch sử hình thành và phát triển */
+        public IActionResult DevelopmentHistory()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();

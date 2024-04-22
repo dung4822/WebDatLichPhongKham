@@ -229,7 +229,9 @@
                 <li class="menucap2">
                     <a href="">Giới thiệu</a>
                     <ul class="menucap2__info">
-                        <li><a href="">Lịch sử hình thành phát triển</a></li>
+                        <li>
+                            <a class="trangchu" asp-area="" asp-controller="Home" asp-action="DevelopmentHistory">Lịch sử hình thành phát triển</a>
+                        </li>
                         <li><a href="">Cơ sở vật chất & trang thiết bị</a></li>
                         <li><a href="">Chứng chỉ chứng nhận</a></li>
                         <li><a href="">Báo chí nói về chúng tôi</a></li>
@@ -299,11 +301,11 @@
 
 
     @* Body *@
-    <div class="container">
+    @* <div class="container-fluid"> *@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
+    @* </div> *@
 
     <!-- Footer -->
     <div class="container-fluid" style="background-color: #00508E;">

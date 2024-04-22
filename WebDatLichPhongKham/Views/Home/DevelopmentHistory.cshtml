@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "LỊCH SỬ HÌNH THÀNH VÀ PHÁT TRIỂN";
+}
+<style>
+    .anhtieude {
+        position: relative;
+        background: url(https://medlatec.vn/med/images/breadcrumb4.jpg) no-repeat;
+        height: 400px;
+        background-size: cover;
+    }
+
+    .anhtieude::after {
+        z-index: 2;
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 400px;
+        width: 100%;
+        background-color: #029ffb7a;
+    }
+
+    .anhtieude .col-8 {
+        position: relative;
+        top: 0;
+        padding-top: 180px;
+        padding-left: 50px;
+        color: white;
+        z-index: 3;
+    }
+</style>
+
+<div class="anhtieude">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-8">
+                <h2>@ViewData["Title"]</h2>
+                <ul class="d-flex ps-0">
+                    <li class="list-unstyled"><a class="trangchu text-decoration-none text-light" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                    <li class="ps-3 mx-5">Giới thiệu</li>
+                    <li class="fw-bold ps-3">Lịch sử hình thành và phát triển</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

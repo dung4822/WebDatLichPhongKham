@@ -1,0 +1,10 @@
+bin/
+Controllers/
+Migrations/
+Models/
+obj/
+Properties/
+appsettings.Development.json
+appsettings.json
+Program.cs
+WebDatLichPhongKham.csproj
