@@ -60,7 +60,7 @@ Một hệ thống quản lý đặt lịch khám bệnh toàn diện cho Bệnh
 
 1. Clone repository:
 bash
-git clone https://github.com/your-username/WebAdminDatLichPhongKham.git
+git clone https://github.com/dung4822/WebAdminDatLichPhongKham.git
 
 2. Cập nhật connection string trong `appsettings.json`
 
